@@ -18,27 +18,27 @@ Route::get('api-login', 'APIAuthComtroller@apiloginForm');
 
 Route::post('api-login', 'APIAuthComtroller@login');
 
-Route::get('api-all-news', 'APIAuthComtroller@showAllNews');
+Route::get('api-all-news', 'NewsController@showAllNews');
 
-Route::get('api-one-news/{id}', 'APIAuthComtroller@displayOneNews');
+Route::get('api-one-news/{id}', 'NewsController@displayOneNews');
 
-Route::get('api-change-news/{id}', 'APIAuthComtroller@getChangeNewsForm');
+Route::get('api-change-news/{id}', 'NewsController@getChangeNewsForm');
 
-Route::post('api-change-news/{id}', 'APIAuthComtroller@savingChangesNews');
+Route::post('api-change-news/{id}', 'NewsController@savingChangesNews');
 
-Route::get('api-delete-news/{id}', 'APIAuthComtroller@removalNews');
+Route::get('api-delete-news/{id}', 'NewsController@removalNews');
 
-Route::get('api-create-news', 'APIAuthComtroller@createNewsForm');
+Route::get('api-create-news', 'NewsController@createNewsForm');
 
-Route::post('api-create-news', 'APIAuthComtroller@addingCreatedNews');
+Route::post('api-create-news', 'NewsController@addingCreatedNews');
 
-Route::get('api-search-news', 'APIAuthComtroller@formSearchNews');
+Route::get('api-search-news', 'NewsController@formSearchNews');
 
-Route::post('api-search-news', 'APIAuthComtroller@showSerchNews');
+Route::post('api-search-news', 'NewsController@showSerchNews');
 
-Route::get('api-tag-search-news', 'APIAuthComtroller@formTagSearchNews');
+Route::get('api-tag-search-news', 'NewsController@formTagSearchNews');
 
-Route::post('api-tag-search-news', 'APIAuthComtroller@showTagSerchNews');
+Route::post('api-tag-search-news', 'NewsController@showTagSerchNews');
 
 Route::get('api-registration', 'APIAuthComtroller@apiregistrationForm');
 
