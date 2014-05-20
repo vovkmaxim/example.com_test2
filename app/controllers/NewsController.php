@@ -227,7 +227,7 @@ class NewsController extends BaseController {
                     return Redirect::to('api-create-news')->withErrors($data);
                 }
             } catch (\Exception $e) {
-                $date = array(
+                $data = array(
                     "error" => $e->getMessage()
                 );
                 return Redirect::to('api-create-news')->withErrors($data);
