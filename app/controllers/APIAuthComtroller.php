@@ -1,6 +1,6 @@
 <?php
 
-class APIAuthComtroller extends BaseController {
+class APIAuthComtroller extends AdminController {
 
     /**
      * This method show displey log ih form
