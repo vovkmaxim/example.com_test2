@@ -14,37 +14,53 @@
 
 Route::get('/', 'HomeController@showWelcome');
 
-Route::get('api-login', 'APIAuthComtroller@apiloginForm');
+Route::get('api-login', array('as' => 'login',
+                                 'uses' => 'APIAuthComtroller@apiloginForm'));
 
-Route::post('api-login', 'APIAuthComtroller@login');
+Route::post('api-login', array('as' => 'login',
+                                'uses' => 'APIAuthComtroller@login'));
 
-Route::get('api-all-news', 'NewsController@showAllNews');
+Route::get('api-all-news', array('as' => 'all-news',
+                            'uses' => 'NewsController@showAllNews'));
 
-Route::get('api-one-news/{id}', 'NewsController@displayOneNews');
+Route::get('api-one-news/{id}',  array('as' => 'one-news/{id}',
+                            'uses' => 'NewsController@displayOneNews'));
 
-Route::get('api-change-news/{id}', 'NewsController@getChangeNewsForm');
+Route::get('api-change-news/{id}', array('as' => 'change-news/{id}',
+                            'uses' => 'NewsController@getChangeNewsForm'));
 
-Route::post('api-change-news/{id}', 'NewsController@savingChangesNews');
+Route::post('api-change-news/{id}', array('as' => 'change-news/{id}',
+                            'uses' => 'NewsController@savingChangesNews'));
 
-Route::get('api-delete-news/{id}', 'NewsController@removalNews');
+Route::get('api-delete-news/{id}',  array('as' => 'delete-news/{id}',
+                            'uses' => 'NewsController@removalNews'));
 
-Route::get('api-create-news', 'NewsController@createNewsForm');
+Route::get('api-create-news', array('as' => 'create-news',
+                            'uses' => 'NewsController@createNewsForm'));
 
-Route::post('api-create-news', 'NewsController@addingCreatedNews');
+Route::post('api-create-news',  array('as' => 'create-news',
+                            'uses' => 'NewsController@addingCreatedNews'));
 
-Route::get('api-search-news', 'NewsController@formSearchNews');
+Route::get('api-search-news',  array('as' => 'search-news',
+                            'uses' => 'NewsController@formSearchNews'));
 
-Route::post('api-search-news', 'NewsController@showSerchNews');
+Route::post('api-search-news', array('as' => 'search-news',
+                            'uses' => 'NewsController@showSerchNews'));
 
-Route::get('api-tag-search-news', 'NewsController@formTagSearchNews');
+Route::get('api-tag-search-news', array('as' => 'tag-search-news',
+                                    'uses' => 'NewsController@formTagSearchNews'));
 
-Route::post('api-tag-search-news', 'NewsController@showTagSerchNews');
+Route::post('api-tag-search-news', array('as' => 'tag-search-news',
+                                    'uses' =>  'NewsController@showTagSerchNews'));
 
-Route::get('api-registration', 'APIAuthComtroller@apiregistrationForm');
+Route::get('api-registration',  array('as' => 'registration',
+                                    'uses' => 'APIAuthComtroller@apiregistrationForm'));
 
-Route::post('api-registration', 'APIAuthComtroller@registration');
+Route::post('api-registration',  array('as' => 'registration',
+                                    'uses' => 'APIAuthComtroller@registration'));
 
-Route::get('api-logout', 'APIAuthComtroller@logout');
+Route::get('api-logout',  array('as' => 'logout',
+                                    'uses' =>  'APIAuthComtroller@logout'));
 
 
 
