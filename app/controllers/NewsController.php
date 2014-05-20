@@ -12,12 +12,14 @@ class NewsController extends AdminController {
     public function showAllNews() {
 
         try {
-            if (App::make('user_provaider')->islogged()) {
+            
+//            if (App::make('user_provaider')->islogged()) {
                 $news = array(
                     'news' => App::make('news_provaider')->allnews()
                 );
                 return View::make('APIallNews', $news);
-            }
+//            }
+                
         } catch (\Exception $e) {
             $news = array(
                 "error" => $e->getMessage()
@@ -35,7 +37,7 @@ class NewsController extends AdminController {
     public function displayOneNews($news_id) {
 
         try {
-            if (App::make('user_provaider')->islogged()) {
+            //if (App::make('user_provaider')->islogged()) {
 
                 $data = App::make('news_provaider')->onenews($news_id);
 
@@ -48,7 +50,7 @@ class NewsController extends AdminController {
                     );
                 }
                 return View::make('getOneAPINews', $news);
-            }
+            //}
         } catch (\Exception $e) {
             $news = array(
                 "error" => $e->getMessage()
