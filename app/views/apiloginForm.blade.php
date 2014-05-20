@@ -7,7 +7,13 @@
         <div class="container">
                 {{ Form::open(array('url' => 'api-login', 'method' => 'post','class' => 'form-signin')) }}
 <!--    {{ Form::open(array('class' => 'form-signin')) }}-->
-
+        <?php 
+        $redirect = '/';
+            if(!empty($url)){
+                $redirect = $url;
+            }
+         echo $url;
+        ?>
         @if (!$errors->isEmpty())
         <div class="alert alert-danger">
             @foreach ($errors->all() as $error)
@@ -16,7 +22,7 @@
         </div>
         @endif
         
-
+        {{ Form::hidden('redirect',$redirect) }}
         {{ Form::text('username', null, array('class' => 'form-control', 'placeholder' => 'login')) }}
         {{ Form::password('password', array('class' => 'form-control', 'placeholde' => 'password')) }}
 
