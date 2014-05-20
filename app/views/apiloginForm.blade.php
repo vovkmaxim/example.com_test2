@@ -12,7 +12,6 @@
             if(!empty($url)){
                 $redirect = $url;
             }
-         echo $url;
         ?>
         @if (!$errors->isEmpty())
         <div class="alert alert-danger">
