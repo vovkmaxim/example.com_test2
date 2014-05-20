@@ -8,7 +8,10 @@ class APIAuthComtroller extends AdminController {
      * @return \Illuminate\View\View
      */
     public function apiloginForm() {
-        return View::make('apiloginForm');
+        $returnurl = array(
+            'url' => URL::previous()
+        );
+        return View::make('apiloginForm',$returnurl);
     }
 
     /**
@@ -98,8 +101,8 @@ class APIAuthComtroller extends AdminController {
     public function login() {
         $password = Input::get('password');
         $username = Input::get('username');
+        $redirect = Input::get('redirect');
         $remember = Input::get('remember-me');
-        //return $remember;
         $validator = Validator::make(
                         array(
                     'password' => $password,
@@ -126,11 +129,11 @@ class APIAuthComtroller extends AdminController {
                     if ($remember) {
                         Cookie::forever('userHASH', $result->hash);
                         Cookie::forever('userID', $result->id);
-                        return Redirect::to('/');
+                        return Redirect::to($redirect);                       
                     } else {
                         Cookie::queue('userHASH', $result->hash, 10, '/');
                         Cookie::queue('userID', $result->id, 10, '/');
-                        return Redirect::to('/');
+                        return Redirect::to($redirect); 
                     }
                 } else {
                     $error = array(
