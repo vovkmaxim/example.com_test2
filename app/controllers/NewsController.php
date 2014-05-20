@@ -10,7 +10,7 @@ class NewsController extends AdminController {
      * returns a list of news or reference error api
      */
     public function showAllNews() {
-
+        
         try {
             
 //            if (App::make('user_provaider')->islogged()) {
