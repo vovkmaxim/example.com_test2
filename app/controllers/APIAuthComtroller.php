@@ -1,6 +1,6 @@
 <?php
 
-class APIAuthComtroller extends AdminController {
+class APIAuthComtroller extends BaseController {
 
     /**
      * This method show displey log ih form
@@ -8,9 +8,10 @@ class APIAuthComtroller extends AdminController {
      * @return \Illuminate\View\View
      */
     public function apiloginForm() {
+        
         $returnurl = array(
-            'url' => URL::previous()
-        );
+            'url' => Input::get('url')
+        );return $returnurl;
         return View::make('apiloginForm',$returnurl);
     }
 
