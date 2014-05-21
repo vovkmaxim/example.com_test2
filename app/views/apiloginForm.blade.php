@@ -6,7 +6,6 @@
     @section('content')
         <div class="container">
                 {{ Form::open(array('url' => 'api-login', 'method' => 'post','class' => 'form-signin')) }}
-<!--    {{ Form::open(array('class' => 'form-signin')) }}-->
         <?php 
         $redirect = '/';
             if(!empty($url)){
@@ -15,6 +14,7 @@
         ?>
         @if (!$errors->isEmpty())
         <div class="alert alert-danger">
+            
             @foreach ($errors->all() as $error)
             <p>{{ $error }}</p>
             @endforeach
