@@ -3,6 +3,36 @@
 class NewsController extends AdminController {
 
     
+    
+//       protected function roles(){
+//        $userrole = array(
+//            'admin' => Config::get('userrole.admin'),
+//            'manager' => Config::get('userrole.manager'),
+//            'editor' => Config::get('userrole.editor'),
+//        );
+//        
+//        try {
+//            $roles = App::make('user_provaider')->roles();
+//            return $userrole[$roles[0]];
+//        } catch (\Exception $e) {
+//            return false;
+//        }
+//    }
+//    
+//    protected function walking($realurl){
+//        $flag = false;
+//        $roles = $this->roles();
+//        foreach ($roles as $role){
+//            if($role==$realurl){
+//                $flag = true;
+//            }
+//        }
+//        
+//        return $flag;
+//    }
+//    
+    
+    
     /**
      * Method is used to display all the news
      * 
@@ -10,16 +40,12 @@ class NewsController extends AdminController {
      * returns a list of news or reference error api
      */
     public function showAllNews() {
-        
+  
         try {
-            
-//            if (App::make('user_provaider')->islogged()) {
-                $news = array(
-                    'news' => App::make('news_provaider')->allnews()
-                );
-                return View::make('APIallNews', $news);
-//            }
-                
+            $news = array(
+                'news' => App::make('news_provaider')->allnews()
+            );
+            return View::make('APIallNews', $news);
         } catch (\Exception $e) {
             $news = array(
                 "error" => $e->getMessage()
@@ -37,7 +63,6 @@ class NewsController extends AdminController {
     public function displayOneNews($news_id) {
 
         try {
-            //if (App::make('user_provaider')->islogged()) {
 
                 $data = App::make('news_provaider')->onenews($news_id);
 
@@ -50,7 +75,6 @@ class NewsController extends AdminController {
                     );
                 }
                 return View::make('getOneAPINews', $news);
-            //}
         } catch (\Exception $e) {
             $news = array(
                 "error" => $e->getMessage()
@@ -68,7 +92,6 @@ class NewsController extends AdminController {
     public function getChangeNewsForm($news_id) {
 
         try {
-//            if (App::make('user_provaider')->islogged()) {
                 $data = App::make('news_provaider')->onenews($news_id);
                 foreach ($data as $value) {
                     $news = array(
@@ -79,7 +102,6 @@ class NewsController extends AdminController {
                     );
                 }
                 return View::make('APIchangeNews', $news);
-//            }
         } catch (\Exception $e) {
             $news = array(
                 "error" => $e->getMessage()
@@ -117,7 +139,6 @@ class NewsController extends AdminController {
         } else {
 
             try {
-//                if (App::make('user_provaider')->islogged()) {
                     $data = array(
                         "title" => $title,
                         "author" => $author,
@@ -133,7 +154,6 @@ class NewsController extends AdminController {
                     );
                     $url = 'api-change-news/' . $id;
                     return Redirect::to($url)->withErrors($date);
-//                }
             } catch (\Exception $e) {
                 $date = array(
                     "error" => $e->getMessage()
@@ -155,7 +175,6 @@ class NewsController extends AdminController {
     public function removalNews($news_id) {
 
         try {
-//            if (App::make('user_provaider')->islogged()) {
                 $result = App::make('news_provaider')->delete($news_id);
                 foreach ($result as $value) {
                     $news = array(
@@ -164,7 +183,6 @@ class NewsController extends AdminController {
                     );
                 }
                 return View::make('getResultDelete', $news);
-//            }
         } catch (\Exception $e) {
             $news = array(
                 "success" => false,
@@ -209,8 +227,6 @@ class NewsController extends AdminController {
             return Redirect::to('api-create-news')->withErrors($validator);
         } else {
             try {
-//                if (App::make('user_provaider')->islogged()) {
-
                     $data = array(
                         "title" => $title,
                         "author" => $author,
@@ -227,7 +243,6 @@ class NewsController extends AdminController {
                         'error' => $message
                     );
                     return Redirect::to('api-create-news')->withErrors($data);
-//                }
             } catch (\Exception $e) {
                 $data = array(
                     "error" => $e->getMessage()
@@ -281,7 +296,6 @@ class NewsController extends AdminController {
         } else {
 
             try {
-//                if (App::make('user_provaider')->islogged()) {
 
                     $result = App::make('news_provaider')->searchtextnews($text_search);
                     foreach ($result as $data_value) {
@@ -299,7 +313,6 @@ class NewsController extends AdminController {
                             return View::make('getShowSearchAPINews', $news);
                         }
                     }
-//                }
             } catch (\Exception $e) {
                 $date = array(
                     "error" => $e->getMessage()
@@ -330,7 +343,6 @@ class NewsController extends AdminController {
         } else {
 
             try {
-//                if (App::make('user_provaider')->islogged()) {
 
                     $result = App::make('news_provaider')->searchtagnews($tag);
                     $dates = array();
@@ -378,7 +390,6 @@ class NewsController extends AdminController {
                             return Redirect::to('api-tag-search-news')->withErrors($dates);
                         }
                     }
-//                }
             } catch (\Exception $e) {
                 $date = array(
                     "error" => $e->getMessage()
