@@ -12,7 +12,8 @@
  */
 
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', array('as' => 'home',
+                        'uses' => 'HomeController@showWelcome'));
 
 Route::get('api-login', array('as' => 'login',
                                  'uses' => 'APIAuthComtroller@apiloginForm'));
@@ -23,16 +24,16 @@ Route::post('api-login', array('as' => 'login',
 Route::get('api-all-news', array('as' => 'all-news',
                             'uses' => 'NewsController@showAllNews'));
 
-Route::get('api-one-news/{id}',  array('as' => 'one-news/{id}',
+Route::get('api-one-news/{id}',  array('as' => 'one-news',
                             'uses' => 'NewsController@displayOneNews'));
 
-Route::get('api-change-news/{id}', array('as' => 'change-news/{id}',
+Route::get('api-change-news/{id}', array('as' => 'change-news',
                             'uses' => 'NewsController@getChangeNewsForm'));
 
-Route::post('api-change-news/{id}', array('as' => 'change-news/{id}',
+Route::post('api-change-news/{id}', array('as' => 'change-news',
                             'uses' => 'NewsController@savingChangesNews'));
 
-Route::get('api-delete-news/{id}',  array('as' => 'delete-news/{id}',
+Route::get('api-delete-news/{id}',  array('as' => 'delete-news',
                             'uses' => 'NewsController@removalNews'));
 
 Route::get('api-create-news', array('as' => 'create-news',
