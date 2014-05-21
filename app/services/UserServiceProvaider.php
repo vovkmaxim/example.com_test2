@@ -78,5 +78,20 @@ class UserServiceProvider extends APIServiceProvider {
             throw new \Exception('Some problem');
         }
   }
+  
+  /**
+   *  appeal to the api for get users roles
+   * 
+   * @return array user role
+   * @throws \Exception
+   */
+  public function roles(){
+            $result = $this->_makeAPIRequest(\Config::get('usercurl.role'), "POST", $this->getCookieHash());
+      if ($result['success']) {
+            return $result['data']->data;
+        } else {
+            throw new \Exception('Some problem');
+        }
+  }
  
 }
