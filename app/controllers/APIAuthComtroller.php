@@ -11,7 +11,7 @@ class APIAuthComtroller extends BaseController {
         
         $returnurl = array(
             'url' => Input::get('url')
-        );return $returnurl;
+        );
         return View::make('apiloginForm',$returnurl);
     }
 
