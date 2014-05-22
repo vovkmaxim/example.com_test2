@@ -8,8 +8,8 @@ class AdminController extends BaseController {
             App::make('user_provaider')->islogged();
             if ($this->walking(Route::currentRouteName())) {
                 $this->beforeFilter(function() {
-                    //return Redirect::to(URL::previous());
-                    return Redirect::route('home');
+                    //return Redirect::route('home');
+                    return App::abort(404,"You do not have permission for this operation");
                 });
             }
         } catch (\Exception $e) {
