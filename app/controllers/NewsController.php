@@ -4,35 +4,6 @@ class NewsController extends AdminController {
 
     
     
-//       protected function roles(){
-//        $userrole = array(
-//            'admin' => Config::get('userrole.admin'),
-//            'manager' => Config::get('userrole.manager'),
-//            'editor' => Config::get('userrole.editor'),
-//        );
-//        
-//        try {
-//            $roles = App::make('user_provaider')->roles();
-//            return $userrole[$roles[0]];
-//        } catch (\Exception $e) {
-//            return false;
-//        }
-//    }
-//    
-//    protected function walking($realurl){
-//        $flag = false;
-//        $roles = $this->roles();
-//        foreach ($roles as $role){
-//            if($role==$realurl){
-//                $flag = true;
-//            }
-//        }
-//        
-//        return $flag;
-//    }
-//    
-    
-    
     /**
      * Method is used to display all the news
      * 
