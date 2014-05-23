@@ -1,12 +1,16 @@
-                <a href="http://example.com/api-login">API - -Log In</a><br>
+<div class="navbar navbar-inverse">
+    <nav class="navbar-inverse">
+        <a href="http://example.com" class="branding"><h3>EXAMPLE.COM</h3></a>
+        <p class="nav">
+            <a href="http://example.com/api-login">LOG IN | </a>
+            <a href="http://example.com/api-registration">REGISTRATION | </a>
+            <a href="http://example.com/api-logout">LOG OUT | </a>
+            <a href="http://example.com/api-all-news">ALL NEWS | </a>
+            <a href="http://example.com/api-create-news">CREATE NEWS | </a>
+            <a href="http://example.com/api-search-news">SEARCH NEWS | </a>
+            <a href="http://example.com/api-tag-search-news">TAG SEARCH NEWS | </a>
+        <p>
+    </nav>
+</div>
 
-                <a href="http://example.com/api-registration">API - - Registration</a><br>
-                
-                <a href="http://example.com/api-logout">API - - Log Out</a><br>
-                <a href="http://example.com/api-all-news">API - - All News</a><br>
-                <a href="http://example.com/api-create-news">API - - CREATE News</a><br>
-                <a href="http://example.com/api-search-news">API - - SEARCH News</a><br>
-                <a href="http://example.com/api-tag-search-news">API - - TAG SEARCH News</a><br>
-                
-                
-               
+

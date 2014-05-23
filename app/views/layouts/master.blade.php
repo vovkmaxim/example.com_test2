@@ -13,14 +13,14 @@
         {{ HTML::style(URL::asset('styles/base.css')) }}
         @show
     </head>
-    <body>
+    <body style="background-color:#FFFFF0;">
         <div class="menu">
             @section('menu')
             @include('layouts.link')
             @show
         </div>
         
-        <div class="body">
+        <div class="conteiner" style="margin-top: 100">
             @section('body')
 
             @show        

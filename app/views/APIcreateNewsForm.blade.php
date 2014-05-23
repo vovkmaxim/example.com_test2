@@ -11,11 +11,25 @@
     @endforeach
 </div>
 @endif
-{{ Form::open(array('url' => 'api-create-news', 'method' => 'post')) }}
-<div> Title: {{ Form::text('title') }}</div>
-<div> Author: {{ Form::text('author') }}</div>
-<div> Description: {{ Form::textarea('description') }}</div>
 
-<div>{{ Form::submit('Add News(API)') }}</div>    
+{{ Form::open(array('url' => 'api-create-news', 'method' => 'post','class'=>'form-inline form-search pull-center')) }}
+<table align="center">
+    <tr>
+        <td> Title: </td>
+        <td>{{ Form::text('title',NULL,array('class' => 'form-control','placeholder'=>'Title')) }}</td>
+    </tr>
+    <tr>
+        <td> Author: </td>
+        <td>{{ Form::text('author',NULL,array('class' => 'form-control','placeholder'=>'Author')) }}</td>
+    </tr>
+    <tr>
+        <td> Description: </td>
+        <td>{{ Form::textarea('description',NULL,array('class' => 'form-control','id'=>'searchInput','placeholder'=>'Description')) }}</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td>{{ Form::submit('CREATE NEWS',array('type'=>'button','class' => 'btn btn-primary')) }}</td>
+    </tr>
+</table>
 {{ Form::close() }}
 @endsection

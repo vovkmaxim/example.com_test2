@@ -11,8 +11,9 @@
         @endforeach
     </div>
         @endif
-        {{ Form::open(array('url' => 'api-tag-search-news', 'method' => 'post')) }}
-            <div>Tag Search: {{ Form::text('tag') }}</div>
-            <div>{{ Form::submit('Search News') }}</div>    
+        {{ Form::close() }}
+        {{ Form::open(array('url' => 'api-tag-search-news', 'method' => 'post','name'=>'search','class'=>'form-inline form-search pull-left')) }}
+        {{ Form::text('tag',NULL,array('class' => 'form-control','id'=>'searchInput','placeholder'=>'Tag search news')) }}
+        {{ Form::submit('Search News',array('type'=>'button','class' => 'btn btn-large btn-block btn-primary')) }}
         {{ Form::close() }}
     @endsection
