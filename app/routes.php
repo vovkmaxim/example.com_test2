@@ -64,17 +64,23 @@ Route::get('api-logout',  array('as' => 'logout',
                                     'uses' =>  'APIAuthComtroller@logout'));
 
 
+Route::post('delete-image', function(){
+    return NewsController::deleteImage();
+});
 
 
 Route::get('upload-image', function(){
     return NewsController::uploadImageForm();
 });
 
-
-
 Route::post('upload-image', function(){
-    //print_r("ffffffffffffffff");
-    return NewsController::uploadImage();
-    
+    return NewsController::uploadImage();  
 });
 
+Route::get('send-mail', function(){
+    echo MailController::sendMailForm();
+});
+
+Route::post('send-mail', function(){
+    return MailController::sendMail();
+});
