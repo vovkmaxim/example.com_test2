@@ -9,6 +9,7 @@
             <a href="http://example.com/api-create-news">CREATE NEWS | </a>
             <a href="http://example.com/api-search-news">SEARCH NEWS | </a>
             <a href="http://example.com/api-tag-search-news">TAG SEARCH NEWS | </a>
+            <a href="http://example.com/upload-image">UPLOAD | </a>
         <p>
     </nav>
 </div>
