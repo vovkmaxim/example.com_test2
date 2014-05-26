@@ -10,6 +10,7 @@
             <a href="http://example.com/api-search-news">SEARCH NEWS | </a>
             <a href="http://example.com/api-tag-search-news">TAG SEARCH NEWS | </a>
             <a href="http://example.com/upload-image">UPLOAD | </a>
+            <a href="http://example.com/send-mail">SEND MAIL | </a>
         <p>
     </nav>
 </div>
