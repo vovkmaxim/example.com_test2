@@ -7,21 +7,50 @@ class NewsController extends AdminController {
     //__________________________________________________________________________
     //__________________________________________________________________________
     
-    
-    public static function uploadImageForm(){
-        
-        $path =  'uploads/images/original/';
+    public static function getImageInFolder() {
+
+        $path = 'uploads/images/original/';
         $files = scandir($path);
         $brand_images = array();
         foreach ($files as $key => $file) {
             if ($file != '.' && $file != '..') {
                 $brand_images[] = $files[$key];
-//                print_r($file);
             }
         }
 
+        return $brand_images;
+    }
+    
+    
+    public static function getCountImages(){
+        return count(NewsController::getImageInFolder());
+    }
+    
+    
+    
+    public static function deleteImage(){
+
+        $image_name = Input::get('image-name');
+        $delete = 'uploads/images/original/'.$image_name;
+        
+        $delete = File::delete($delete);
+        if($delete){
+            return NewsController::uploadImageForm();
+        }
+        
+    }
+    
+    
+    
+    public static function uploadImageForm(){
+        $imageCount = true;
+        if(NewsController::getCountImages() >= 6){
+            $imageCount = FALSE;    
+        }
+        
         $images = array(
-            'images' => $brand_images,
+            'images' => NewsController::getImageInFolder(),
+            'imageCount' => $imageCount,
         );
         return View::make('uploadImageForm',$images);
     }
