@@ -3,6 +3,71 @@
 class NewsController extends AdminController {
 
     
+    //__________________________________________________________________________
+    //__________________________________________________________________________
+    //__________________________________________________________________________
+    
+    
+    public static function uploadImageForm(){
+        
+        $path =  'uploads/images/original/';
+        $files = scandir($path);
+        $brand_images = array();
+        foreach ($files as $key => $file) {
+            if ($file != '.' && $file != '..') {
+                $brand_images[] = $files[$key];
+//                print_r($file);
+            }
+        }
+
+        $images = array(
+            'images' => $brand_images,
+        );
+        return View::make('uploadImageForm',$images);
+    }
+    
+    
+    
+    public static function uploadImage(){
+        
+        $image = Input::file('image');
+        $title = Input::get('title');
+        
+        $validator = Validator::make(
+                        array(
+                    'image' => $image,
+                        ), array(
+                    'image' => 'required|image|max:3000',
+                        )
+        );
+        if ($validator->fails()) {
+            
+            return Redirect::to("upload-image")->withErrors($validator);
+            
+        } else {
+            
+            $destinationPath    = 'uploads/images/original/';
+//            $destinationPathThrom    = 'uploads/images/throm/';
+            $filename           = $image->getClientOriginalName();
+            $mime_type          = $image->getMimeType();
+            $extension          = $image->getClientOriginalExtension(); 
+   
+            $upload_success     = $image->move($destinationPath, $filename); 
+            
+            if($upload_success){
+                $data = array(
+                    'data' => 'You uploads success'
+                );
+                return Redirect::to("upload-image")->withErrors($data);
+            }
+            
+        }
+        
+    }
+    
+    //__________________________________________________________________________
+    //__________________________________________________________________________
+    //__________________________________________________________________________
     
     /**
      * Method is used to display all the news
