@@ -66,9 +66,15 @@ Route::get('api-logout',  array('as' => 'logout',
 
 
 
+Route::get('upload-image', function(){
+    return NewsController::uploadImageForm();
+});
 
 
 
-
-
+Route::post('upload-image', function(){
+    //print_r("ffffffffffffffff");
+    return NewsController::uploadImage();
+    
+});
 
